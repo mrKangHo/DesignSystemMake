@@ -190,8 +190,7 @@ struct TokenCardView: View {
                 case .typography:
                     if let val = token.typographyValue {
                         Text("Aa")
-                            .font(.custom(val.fontFamily, size: min(val.fontSize, 30)))
-                            .fontWeight(fontWeight(val.fontWeight))
+                            .font(safeFontPreview(family: val.fontFamily, size: min(val.fontSize, 30), weightStr: val.fontWeight))
                             .foregroundStyle(.primary)
                     }
                 case .spacing:
@@ -304,6 +303,25 @@ struct TokenCardView: View {
         }
         .onTapGesture {
             onSelect()
+        }
+    }
+    
+    private func safeFontPreview(family: String, size: CGFloat, weightStr: String) -> Font {
+        let weight: Font.Weight = {
+            switch weightStr.lowercased() {
+            case "bold": return .bold
+            case "semibold": return .semibold
+            case "medium": return .medium
+            default: return .regular
+            }
+        }()
+        
+        if family.hasPrefix("SF Pro") {
+            return .system(size: size, weight: weight, design: .default)
+        } else if family.hasPrefix("SF Mono") {
+            return .system(size: size, weight: weight, design: .monospaced)
+        } else {
+            return .custom(family, size: size)
         }
     }
     

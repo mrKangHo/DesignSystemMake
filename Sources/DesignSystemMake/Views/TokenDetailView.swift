@@ -307,7 +307,7 @@ struct TypographyTokenEditorView: View {
                         .font(.caption.bold())
                         .foregroundStyle(.tertiary)
                     Text("The quick brown fox jumps over the lazy dog.")
-                        .font(.custom(val.fontFamily, size: val.fontSize))
+                        .font(safeFontPreview(family: val.fontFamily, size: val.fontSize, weightStr: val.fontWeight))
                         .padding()
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .background(Color(nsColor: .windowBackgroundColor))
@@ -318,6 +318,25 @@ struct TypographyTokenEditorView: View {
         .padding()
         .background(Color(nsColor: .controlBackgroundColor))
         .clipShape(RoundedRectangle(cornerRadius: 12))
+    }
+    
+    private func safeFontPreview(family: String, size: CGFloat, weightStr: String) -> Font {
+        let weight: Font.Weight = {
+            switch weightStr.lowercased() {
+            case "bold": return .bold
+            case "semibold": return .semibold
+            case "medium": return .medium
+            default: return .regular
+            }
+        }()
+        
+        if family.hasPrefix("SF Pro") {
+            return .system(size: size, weight: weight, design: .default)
+        } else if family.hasPrefix("SF Mono") {
+            return .system(size: size, weight: weight, design: .monospaced)
+        } else {
+            return .custom(family, size: size)
+        }
     }
 }
 

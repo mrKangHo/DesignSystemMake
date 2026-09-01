@@ -2,11 +2,26 @@
 
 [![macOS 14+](https://img.shields.io/badge/macOS-14.0%2B-blue.svg)](https://developer.apple.com/macos/)
 [![Swift 5.10 / 6.0](https://img.shields.io/badge/Swift-5.10%20%7C%206.0-orange.svg)](https://swift.org)
+[![Homebrew](https://img.shields.io/badge/Homebrew-Formula-green.svg)](Formula/designsystemmake.rb)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Figma API](https://img.shields.io/badge/Figma-Variables%20API-purple.svg)](https://www.figma.com/developers/api)
 
 > **Production-grade macOS Native Design System Token Studio & Multi-Platform Exporter.**  
 > Built with SwiftUI 5, AppKit, W3C DTCG Standards, and Apple Human Interface Guidelines (HIG).
+
+---
+
+## 🍺 Homebrew Installation
+
+Install `DesignSystemMake` via Homebrew with 1 command:
+
+```bash
+# Tap repository & install DesignSystemMake
+brew install mrKangHo/DesignSystemMake/designsystemmake
+
+# Launch DesignSystemMake
+designsystemmake
+```
 
 ---
 
@@ -74,7 +89,7 @@
 ### Build & Execute via Swift Package Manager
 ```bash
 # Clone repository
-git clone https://github.com/leeky84/DesignSystemMake.git
+git clone https://github.com/mrKangHo/DesignSystemMake.git
 cd DesignSystemMake
 
 # Build package

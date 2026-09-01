@@ -1,0 +1,10 @@
+# Xcode / SPM / macOS .gitignore
+.build/
+Packages/
+*.xcodeproj
+*.xcworkspace
+.DS_Store
+*.swp
+*~
+convert_icon.swift
+fix_icon.swift

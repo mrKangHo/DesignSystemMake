@@ -8,12 +8,9 @@ let package = Package(
         .executableTarget(
             name: "DesignSystemMake",
             resources: [
-                .copy("Resources/AppIcon.png")
+                .copy("Resources/AppIcon.png"),
+                .copy("Resources/AppIcon.jpg")
             ]
-        ),
-        .testTarget(
-            name: "DesignSystemMakeTests",
-            dependencies: ["DesignSystemMake"]
-        ),
+        )
     ]
 )

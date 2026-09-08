@@ -8,6 +8,7 @@ public struct FigmaSyncResult: Sendable {
 }
 
 public class FigmaAPIService {
+    public init() {}
     
     /// Extract Figma file key from full URL (e.g., https://www.figma.com/design/aB1c2D3e4F5/My-Design-System -> aB1c2D3e4F5)
     public static func extractFileKey(from input: String) -> String {

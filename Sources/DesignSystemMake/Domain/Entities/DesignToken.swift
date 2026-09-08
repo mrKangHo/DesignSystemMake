@@ -96,7 +96,7 @@ public struct ShadowTokenValue: Codable, Hashable {
 }
 
 /// Main Design Token entity
-public struct DesignToken: Identifiable, Codable, Hashable {
+public struct DesignToken: Identifiable, Codable, Hashable, Sendable {
     public var id: UUID
     public var name: String // e.g. "color.brand.primary" or "brand-primary"
     public var displayName: String // e.g. "Brand Primary"

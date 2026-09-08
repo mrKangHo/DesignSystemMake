@@ -1,6 +1,6 @@
 import Foundation
 
-public struct DesignSystemProject: Identifiable, Codable {
+public struct DesignSystemProject: Identifiable, Codable, Sendable {
     public var id: UUID
     public var name: String
     public var version: String
